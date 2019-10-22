@@ -1,8 +1,5 @@
 ﻿using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Text;
-// using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace MySlack
 {
@@ -10,7 +7,10 @@ namespace MySlack
 	{
 		static int Main(string[] args)
 		{
-			Console.WriteLine("HelloWorld!");
+			var hc = new HttpClient();
+			HttpContent content = null;
+			var res = hc.PostAsync("https://XXX", content).Result;
+			Console.WriteLine(res);
 			return 0;
 		}
 	}
