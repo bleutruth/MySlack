@@ -9,7 +9,16 @@ namespace MySlack
 		{
 			var hc = new HttpClient();
 			HttpContent content = null;
-			var res = hc.PostAsync("https://XXX", content).Result;
+			HttpResponseMessage res = null;
+			try
+			{
+				res = hc.PostAsync("https://XXX", content).Result;
+			}
+			catch (AggregateException e)
+			{
+				Console.WriteLine(e);
+				return -1;
+			}
 			Console.WriteLine(res);
 			return 0;
 		}
