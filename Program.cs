@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Net.Http;
 
 namespace MySlack
@@ -15,7 +16,7 @@ namespace MySlack
 			var uri = args[0];
 
 			var hc = new HttpClient();
-			HttpContent content = null;
+			var content = new StringContent("{\"text\": \"test\"}", Encoding.UTF8, "application/json");
 			HttpResponseMessage res = null;
 			try
 			{
